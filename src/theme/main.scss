@@ -3,6 +3,7 @@
 @import "partials/functions";
 
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Global settings
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,6 +109,8 @@
       }
 }
 
+
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Display corrector
   /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -142,32 +145,103 @@
 
 
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // App item box
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 .item_box {
+  height:             420px;
   padding:            $font_spacing_xs $font_spacing_sm;
   border-radius:      $border_contentBox;
   background:         $c_lightBg;
 
-  h1 {
-    height:           30px;
+  .box_title {
+    // height:           30px;
+    margin-bottom:    $font_spacing_xs;
+    font-size:        $font_size_lg;
     font-style:       italic;
+    font-weight:      bold;
     color:            $c_main;
   }
 
-  p {
-    height:           100px;
-    overflow:         hidden;
-    text-align:       justify;
+  .box_type,
+  .box_topics,
+  .box_authors {
     font-size:        $font_size_md;
+    font-style:       italic;
+    font-weight:      bold;
   }
 
-  img {
+    .box_authors {
+      text-align:       right;
+    }
+
+  .box_img {
     width:            100%;
     height:           150px;
     margin:           $font_spacing_xs 0;
   }
+
+  .box_description {
+    height:           70px;
+    margin-bottom:    $font_spacing_xs;
+    text-align:       justify;
+    font-size:        $font_size_md;
+  }
+
 }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// App item box
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#item_list_content {
+  width:              100%;
+  padding:            $font_spacing_xs $font_spacing_sm;
+  border-radius:      $border_contentBox;
+  font-weight:        bold; 
+  background-color:   $c_secD1;
+
+    th {
+      padding-bottom:   $font_spacing_xs;
+      color:            $c_light;
+    }
+
+    .item_list td {
+      padding:          $font_spacing_xs /2;
+      background-color: $c_secL3;
+    }
+
+      .list_icon {
+        width:            2.5%;
+        border-radius:    $font_spacing_xs 0 0 $font_spacing_xs;
+      }
+
+      .list_title {
+        width:            15%;
+      }
+
+      .list_type {
+        width:            5%;
+      }
+
+      .list_topics,
+      .list_authors,
+      .list_published_date {
+        width:            10%;
+      }
+
+      .list_description {
+        text-align:       justify;
+      }
+
+      .list_id {
+        width:            5%;
+        border-radius:    0 $font_spacing_xs $font_spacing_xs 0;
+      }
+}
+
+
+

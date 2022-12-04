@@ -16,4 +16,5 @@ export const HeadBar = (p) =>
     </div>
 
 export const ItemBox = (p) => <div class="item_box col span-1-of-3"> {p.children} </div>
+export const ItemList = (p) => <tr class="item_list"> {p.children} </tr>
 export const Footer = () => <p id="footer">© 2022 Diagram gallery ~ Team 3</p>

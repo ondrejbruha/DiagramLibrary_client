@@ -114,27 +114,88 @@ li#login_sm {
 }
 
 .item_box {
+  height: 420px;
   padding: 1rem 1.5rem;
   border-radius: 10px;
   background: #fff;
 }
 
-.item_box h1 {
-  height: 30px;
+.item_box .box_title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
   font-style: italic;
+  font-weight: bold;
   color: #00f;
 }
 
-.item_box p {
-  height: 100px;
-  overflow: hidden;
+.item_box .box_type,
+.item_box .box_topics,
+.item_box .box_authors {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.item_box .box_authors {
+  text-align: right;
+}
+
+.item_box .box_img {
+  width: 100%;
+  height: 150px;
+  margin: 1rem 0;
+}
+
+.item_box .box_description {
+  height: 70px;
+  margin-bottom: 1rem;
   text-align: justify;
   font-size: 1rem;
 }
 
-.item_box img {
+#item_list_content {
   width: 100%;
-  height: 150px;
-  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #00b;
+}
+
+#item_list_content th {
+  padding-bottom: 1rem;
+  color: #fff;
+}
+
+#item_list_content .item_list td {
+  padding: 0.5rem;
+  background-color: #99f;
+}
+
+#item_list_content .list_icon {
+  width: 2.5%;
+  border-radius: 1rem 0 0 1rem;
+}
+
+#item_list_content .list_title {
+  width: 15%;
+}
+
+#item_list_content .list_type {
+  width: 5%;
+}
+
+#item_list_content .list_topics,
+#item_list_content .list_authors,
+#item_list_content .list_published_date {
+  width: 10%;
+}
+
+#item_list_content .list_description {
+  text-align: justify;
+}
+
+#item_list_content .list_id {
+  width: 5%;
+  border-radius: 0 1rem 1rem 0;
 }
 /*# sourceMappingURL=main.css.map */
