@@ -1,0 +1,46 @@
+
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+		/*  GRID Extension for project - Diagram gallery
+		==================================================================== */
+
+		@media only screen and (min-width: 901px) {
+			.col:nth-child(3n+1) { margin-left: 0; } 
+		}
+
+		@media only screen and (max-width: 900px) {
+			.col:nth-child(odd) { margin-left: 0; } 
+		}
+
+		@media only screen and (max-width: 480px) {
+			.col { margin: 10px 0 ;}
+		}
+
+		/* ================================================================= */
+
+
+
+/*  GRID OF THREE   ============================================================================= */
+
+.span-1-of-3 {
+	width: 32.26%; 
+}
+
+		/*  GRID Extension for project - Diagram gallery
+		==================================================================== */
+
+		@media only screen and (max-width: 900px) {
+			.span-1-of-3 { width: 49.2%; }
+		}
+
+		@media only screen and (max-width: 480px) {
+			.span-1-of-3 { width: 100%; }
+		}
+
+		/* ================================================================= */

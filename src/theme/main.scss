@@ -1,0 +1,173 @@
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/functions";
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Global settings
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  * {
+    margin:           0;
+    padding:          0;
+    box-sizing:       border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width:            12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius:    $border_scroll;
+    background:       $c_darkBg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius:    $border_scroll;
+    border:           3px solid $c_darkBg;
+    background-color: $c_lightBg;
+  }
+
+  body {
+    background:         $c_darkBg;
+  }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// App main wrapper
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#scroll_bar { 
+  width:              100vw;
+  height:             100vh;
+  position:           fixed;
+  overflow-y:         scroll;
+}
+
+#main_wrapper {
+  width:              70vw;
+  margin:             $corrector_wrapper_top_margin auto 5vh auto;  
+}
+
+#footer {
+  width:              95%;
+  position:           fixed;
+  bottom:             0;
+  left:               2.5%;
+  padding:            1vh 0;
+  text-align:         center;
+  font-size:          $font_size_md;
+  font-style:         italic;
+  background-color:   $c_darkBg;
+  color:              $c_light;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// App head bar
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#head_strip {
+  @extend #main_wrapper;  
+  position:           fixed;
+  margin:             -$corrector_wrapper_top_margin 0;
+  height:             $corrector_wrapper_top_margin;
+  background-color:   $c_darkBg;
+}
+
+#head_bar {
+  @extend #main_wrapper;        
+  bottom:             0;
+  transform:          translateY(-125%);
+  padding:            $font_spacing_xs /1.25;
+  border-radius:      $border_contentBox;
+  background-color:   $c_secD1;
+
+  #left_bar {
+    display:            inline-block;
+  }
+
+  #right_bar {
+    float:              right;
+  }
+
+    li {
+      margin:             0 $font_spacing_xs /5;
+      padding:            $font_spacing_xs /2;
+      display:            inline-block;
+      border-radius:      $border_contentBox;
+      font-weight:        bold;
+      background-color:   $c_main;
+      color:              $c_light;
+    }
+
+      li:hover {
+        background-color:   $c_darkBg;
+      }
+}
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Display corrector
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+  
+    li#display_list,  // not default option
+    li#create,        // only for logged user
+
+    li#search_sm,
+    li#filter_sm,
+    li#display_sm,
+    li#create_sm,
+    li#login_sm {
+      display: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+        li#search_sm,
+        li#filter_sm,
+        li#display_sm,
+        li#login_sm {
+          display: inline-block;
+        }
+
+        li#search,
+        li#filter,
+        li#display_grid,
+        li#display_list,
+        li#login {
+          display: none;
+        }
+    }
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// App item box
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.item_box {
+  padding:            $font_spacing_xs $font_spacing_sm;
+  border-radius:      $border_contentBox;
+  background:         $c_lightBg;
+
+  h1 {
+    height:           30px;
+    font-style:       italic;
+    color:            $c_main;
+  }
+
+  p {
+    height:           100px;
+    overflow:         hidden;
+    text-align:       justify;
+    font-size:        $font_size_md;
+  }
+
+  img {
+    width:            100%;
+    height:           150px;
+    margin:           $font_spacing_xs 0;
+  }
+}
