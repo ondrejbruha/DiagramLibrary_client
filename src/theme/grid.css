@@ -10,11 +10,11 @@
 		/*  GRID Extension for project - Diagram gallery
 		==================================================================== */
 
-		@media only screen and (min-width: 901px) {
+		@media only screen and (min-width: 1001px) {
 			.col:nth-child(3n+1) { margin-left: 0; } 
 		}
 
-		@media only screen and (max-width: 900px) {
+		@media only screen and (max-width: 1000px) {
 			.col:nth-child(odd) { margin-left: 0; } 
 		}
 
@@ -35,7 +35,7 @@
 		/*  GRID Extension for project - Diagram gallery
 		==================================================================== */
 
-		@media only screen and (max-width: 900px) {
+		@media only screen and (max-width: 1000px) {
 			.span-1-of-3 { width: 49.2%; }
 		}
 

@@ -126,21 +126,26 @@
       display: none;
     }
 
-    @media only screen and (max-width: 600px) {
-        li#search_sm,
-        li#filter_sm,
-        li#display_sm,
-        li#login_sm {
-          display: inline-block;
-        }
 
-        li#search,
-        li#filter,
-        li#display_grid,
-        li#display_list,
-        li#login {
-          display: none;
-        }
+    ///////////////////////////////////////////////
+    // media query
+    ///////////////////////////////////////////////
+
+    @media only screen and (max-width: 600px) {
+      li#search_sm,
+      li#filter_sm,
+      li#display_sm,
+      li#login_sm {
+        display: inline-block;
+      }
+
+      li#search,
+      li#filter,
+      li#display_grid,
+      li#display_list,
+      li#login {
+        display: none;
+      }
     }
 
 
@@ -156,9 +161,8 @@
   background:         $c_lightBg;
 
   .box_title {
-    // height:           30px;
     margin-bottom:    $font_spacing_xs;
-    font-size:        $font_size_lg;
+    font-size:        $font_size_md * 1.25;
     font-style:       italic;
     font-weight:      bold;
     color:            $c_main;
@@ -188,13 +192,66 @@
     text-align:       justify;
     font-size:        $font_size_md;
   }
+}
 
+
+  ///////////////////////////////////////////////
+  // media query
+  ///////////////////////////////////////////////
+
+  @media 
+  only screen and (max-width: 1100px) and (min-width: 1001px),
+  only screen and (max-width: 700px) and (min-width: 481px) {
+
+    .item_box {
+      height:             400px;
+    
+      .box_title {
+        font-size:        $font_size_md * 0.9;
+      }
+
+      .box_type,
+      .box_topics,
+      .box_authors {
+        font-size:        $font_size_sm;
+      }
+
+      .box_description {
+        font-size:        $font_size_md * 0.9;
+      }
+    }
+
+
+  @media only screen and (max-width: 600px) {
+    .item_box {
+
+      .box_icon{
+        display:          none;
+      }
+      .box_description {
+        font-size:        $font_size_md * 0.8;
+      }
+    }
+  }
+
+
+  @media only screen and (max-width: 550px) {
+    .item_box {
+      height:             380px;
+
+      .box_type,
+      .box_topics,
+      .box_authors {
+        font-size:        $font_size_sm * 0.9;
+      }
+    }
+  }
 }
 
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-// App item box
+// App item list
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #item_list_content {
@@ -211,6 +268,7 @@
 
     .item_list td {
       padding:          $font_spacing_xs /2;
+      font-size:        $font_size_sm;
       background-color: $c_secL3;
     }
 
@@ -244,4 +302,39 @@
 }
 
 
+  ///////////////////////////////////////////////
+  // media query
+  ///////////////////////////////////////////////
+  
+  @media only screen and (max-width: 1000px) {
+    #item_list_content {
+      .list_id {
+        max-width: 50px;
+        overflow-x: scroll;
+      }
+    }
+  }
 
+  @media only screen and (max-width: 900px) {
+    #item_list_content {
+
+      th {
+        font-size:        $font_size_sm;
+      }
+
+      .item_list td {
+        font-size:        $font_size_xs;
+      }
+  }
+
+  @media only screen and (max-width: 800px) {
+    #item_list_content {
+      th {
+        font-size:        $font_size_xs;
+      }
+      .item_list td {
+        font-size:        $font_size_xs * 0.75;
+      }
+    }
+  }
+}
