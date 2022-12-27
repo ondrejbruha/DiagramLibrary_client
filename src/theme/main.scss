@@ -123,7 +123,7 @@
     li#display_sm,
     li#create_sm,
     li#login_sm {
-      display: none;
+      display:            none;
     }
 
 
@@ -136,7 +136,7 @@
       li#filter_sm,
       li#display_sm,
       li#login_sm {
-        display: inline-block;
+        display:          inline-block;
       }
 
       li#search,
@@ -144,7 +144,7 @@
       li#display_grid,
       li#display_list,
       li#login {
-        display: none;
+        display:          none;
       }
     }
 
@@ -309,8 +309,8 @@
   @media only screen and (max-width: 1000px) {
     #item_list_content {
       .list_id {
-        max-width: 50px;
-        overflow-x: scroll;
+        max-width:        50px;
+        overflow-x:       scroll;
       }
     }
   }
@@ -328,13 +328,85 @@
   }
 
   @media only screen and (max-width: 800px) {
-    #item_list_content {
-      th {
-        font-size:        $font_size_xs;
-      }
-      .item_list td {
-        font-size:        $font_size_xs * 0.75;
-      }
+
+    .list_description,
+    .list_published_date,
+    .list_id,
+    .low-responsive {
+      display:          none;
     }
+
+    .list_authors {
+      border-radius:    0 $font_spacing_xs $font_spacing_xs 0;
+    }
+
   }
 }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// App item detail
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.detail_wrapper {
+  width:              100%;
+  padding:            $font_spacing_xs $font_spacing_sm;
+  border-radius:      $border_contentBox;
+  background-color:   $c_secD1;
+  color:              $c_light;
+}
+
+  .detail_title {
+    width:            70%;
+    display:          inline-block;
+    font-size:        $font_size_lg;
+    font-weight:      bold;
+  }
+
+  .detail_id {
+    width:            30%;
+    display:          inline-block;
+    font-weight:      bold;
+    text-align:       right;
+  }
+
+  .detail_topics {
+    display:          inline-block;
+    font-style:       italic;
+  }
+
+  .detail_type {
+    font-style:       italic;
+    float:            right;
+  }
+
+  .detail_img {
+    width:            100%;
+    margin:           $font_spacing_xs auto;
+    border:           1px solid $c_darkBg;
+    border-radius:    $font_spacing_xs;
+  }
+
+  .description_wrapper {
+    background-color: $c_secL3;
+    border-radius:    $font_spacing_xs;
+    padding:          $font_spacing_xs;
+    color:            $c_dark;
+  }
+
+    .detail_description {
+      text-align:       justify;
+      display:          block;
+    }
+
+    .description_footer {
+      margin-top:       $font_spacing_xs;
+      text-align:       right;
+    } 
+
+      .detail_published_date,
+      .detail_authors {
+      font-style:         italic;
+      }
+

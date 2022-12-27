@@ -14,16 +14,16 @@ import num2 from './images/02.png'
 import num3 from './images/03.png'
 import num4 from './images/04.png'
 
-let test_data;/*[
+let test_data = [
     {
-        "name": "Antirix Testing title xxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxxxxxxxx xxxxxxxx xxxxxxxx xxxxxx",
-        "type": "graf xxxx xxxxxxx xxxxxxx xxxxxxxxx xxxxxx xxxxxxx xxxxxx",
+        "name": "Antirix Testing title xxxxxxxx",
         "authorList": [
-            "Antirix", "Matthew", "Shiro xxx xxxxxxxx xxxxxxx xxxxx xxxxx"
+            "Antirix", "Matthew", "Shiro xxx xxxxx"
         ],
+        "type": "graf",
         "description": ", lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified, lorem ipsum max, lorem ipsum max this is first graph modified",
         "topics": [
-            "numeric", "s:class", "testing block xxxxx xxxxxxxxxxx xxxxxx xxxxxxx"
+            "numeric", "s:class", "testing block xxx"
         ],
         "publishDate": "25.11.2022",
         "img": num1,
@@ -100,7 +100,7 @@ let test_data;/*[
         "published": true,
         "id": "e2ad64271bee7be1"
     }
-]*/
+]
 /////////////////////////// <== remove
 
 
@@ -110,25 +110,26 @@ let test_data;/*[
 
 
 export const App = () => {
-    const [diagramList, setDiagramList] = useState([]);
-    useEffect(() => {
+    // const [diagramList, setDiagramList] = useState([]);
+    // useEffect(() => {
 
-        fetch('diagram/list')
+    //     fetch('diagram/list')
 
-            .then(response => response.json())
+    //         .then(response => response.json())
 
-            .then(data => setDiagramList(data));
+    //         .then(data => setDiagramList(data));
 
-    }, [])
-    test_data = diagramList;
-    console.log(diagramList);
+    // }, [])
+    // test_data = diagramList;
+    // console.log(diagramList);
     return (
         <>
 
             <Unit.MainWrapper>
                 <NavBar/>
-                <ItemListContent/>
-                <ItemBoxContent/>
+                {/* <ItemBoxContent/> */}
+                {/* <ItemListContent/> */}
+                <DetailItemContent/>
                 <Unit.Footer/>
             </Unit.MainWrapper>
         </>
@@ -164,11 +165,10 @@ const NavBar = () => (
 /// Grid display ///
 
 const ItemBoxContent = () => (
-    <div>
+    <div id="box_div">
         {test_data.map(item => (
             <Unit.ItemBox key={item.toString()}>
-                <div class="box_title"><span class="box_icon"><Icon path={mdiFinance}
-                                                                    size={1.0}/></span> {item.name.slice(0, 20)} </div>
+                <div class="box_title"><span class="box_icon"><Icon path={mdiFinance} size={1.0}/></span> {item.name.slice(0, 20)} </div>
                 <div class="box_type"> Type: {item.type.slice(0, 20)} </div>
                 <div class="box_topics"> Topic: {item.topics.join(", ").slice(0, 20)} </div>
                 <img class="box_img" src={item.img}></img>
@@ -186,13 +186,14 @@ const ItemListContent = () => (
     <div>
         <table id="item_list_content">
             <tr>
-                <th colSpan={2}>Title</th>
+                <th></th>
+                <th>Title</th>
                 <th>Type</th>
                 <th>Topics</th>
                 <th>Authors</th>
-                <th>Description</th>
-                <th>Published</th>
-                <th>ID</th>
+                <th class="low-responsive">Description</th>
+                <th class="low-responsive">Published</th>
+                <th class="low-responsive">ID</th>
             </tr>
 
 
@@ -210,5 +211,28 @@ const ItemListContent = () => (
             ))}
 
         </table>
+    </div>
+)
+
+
+/// Detail display ///
+
+const DetailItemContent = () => (
+    <div class="detail_wrapper">
+        <span class="detail_title">{test_data[0].name}</span>   
+        <span class="detail_id">ID: {test_data[0].id}</span>
+        <span class="detail_topics">Topics: {test_data[0].topics.join(", ")}</span>
+        <span class="detail_type">Type: {test_data[0].type}</span>
+        
+        <img class="detail_img" src={test_data[0].img}></img>
+       
+        <div class="description_wrapper">
+            <span class="detail_description">{test_data[0].description}</span>
+
+            <div class="description_footer">
+                <span class="detail_published_date">Published {test_data[0].publishDate}</span>
+                <span class="detail_authors"> by {test_data[0].authorList.join(", ")}</span>
+            </div>
+        </div>
     </div>
 )
