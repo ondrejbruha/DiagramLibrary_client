@@ -1,7 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import './theme/main.css';
 import * as Unit from './Reusable'
-import * as Bars from './barsData'
 import Icon from '@mdi/react';
 import {mdiFinance} from '@mdi/js';
 
@@ -127,9 +126,9 @@ export const App = () => {
 
             <Unit.MainWrapper>
                 <NavBar/>
-                {/* <ItemBoxContent/> */}
-                {/* <ItemListContent/> */}
-                <DetailItemContent/>
+
+                {/* <DetailItemContent/> */}
+                <DisplaySwitch />
                 <Unit.Footer/>
             </Unit.MainWrapper>
         </>
@@ -144,19 +143,32 @@ export const App = () => {
 const NavBar = () => (
     <Unit.HeadBar>
         <ul id="left_bar">
-            {Bars.leftBar.map(item => (
-                <li key={item.toString()} id={item.id}>
-                    {item.name}
-                </li>
-            ))}
+
+            {/* Search button */}
+            <li id="search">Search</li>             
+            <li id="search_sm">🔎</li>
+
+            {/* Filter button */}
+            <li id="filter">Filter</li>             
+            <li id="filter_sm">📊</li>
+
+            {/* Display button */}
+
+            <li id="display_grid" >Grid</li>         
+            <li id="display_table">Table</li>           
+            <li id="display_sm">👁</li>
         </ul>
 
+
         <ul id="right_bar">
-            {Bars.rightBar.map(item => (
-                <li key={item.toString()} id={item.id}>
-                    {item.name}
-                </li>
-            ))}
+
+            {/* Create button */}
+            <li id="create">Create</li>
+            <li id="create_sm">📝</li>
+
+            {/* Login button */}
+            <li id="login">Login</li>
+            <li id="login_sm">👨‍💻</li>
         </ul>
     </Unit.HeadBar>
 )
@@ -236,3 +248,35 @@ const DetailItemContent = () => (
         </div>
     </div>
 )
+
+
+
+
+// ToDo !!!! => Antirix
+
+const DisplaySwitch = () => {
+    const [viewType, setViewType] = useState("grid");
+    const isGrid = viewType === "grid";
+  
+    return (
+      <div>
+            <li
+              onClick={() =>
+                setViewType((currentState) => {
+                  if (currentState === "grid") return "table";
+                  else return "grid";
+                })
+              }
+            >
+              {isGrid ? "Tabulka" : "Grid"}
+            </li>
+
+        {isGrid ? (
+            <ItemBoxContent/>
+        ) : (
+          <ItemListContent/>
+        )}
+    
+    </div>
+    );
+  }
