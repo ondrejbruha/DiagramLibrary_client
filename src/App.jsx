@@ -123,12 +123,8 @@ export const App = () => {
     // console.log(diagramList);
     return (
         <>
-
             <Unit.MainWrapper>
-                <NavBar/>
-
-                {/* <DetailItemContent/> */}
-                <DisplaySwitch />
+                <AppContent/>
                 <Unit.Footer/>
             </Unit.MainWrapper>
         </>
@@ -140,38 +136,64 @@ export const App = () => {
 // Local components
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const NavBar = () => (
-    <Unit.HeadBar>
-        <ul id="left_bar">
+const AppContent = () => {
+    const [viewType, setViewType] = useState("grid");
+    const isGrid = viewType === "grid";
+  
+    return (
+        <>
+            <Unit.HeadBar>
+                <ul id="left_bar">
 
-            {/* Search button */}
-            <li id="search">Search</li>             
-            <li id="search_sm">🔎</li>
+                    {/* Search button */}
+                    <li id="search">Search</li>             
+                    <li id="search_sm">🔎</li>
 
-            {/* Filter button */}
-            <li id="filter">Filter</li>             
-            <li id="filter_sm">📊</li>
+                    {/* Filter button */}
+                    <li id="filter">Filter</li>             
+                    <li id="filter_sm">📊</li>
 
-            {/* Display button */}
+                    {/* Display button */}
+                    <li
+                    onClick={() =>
+                        setViewType((currentState) => {
+                        if (currentState === "grid") return "table";
+                        else return "grid";
+                        })
+                    }
+                    >
+                    {isGrid ? "Tabulka" : "Grid"}
+                    </li>
 
-            <li id="display_grid" >Grid</li>         
-            <li id="display_table">Table</li>           
-            <li id="display_sm">👁</li>
-        </ul>
 
 
-        <ul id="right_bar">
+                    {/* ToDo Antirix */}
+                    {/* <li id="display_sm">👁</li> */}
 
-            {/* Create button */}
-            <li id="create">Create</li>
-            <li id="create_sm">📝</li>
+                </ul>
 
-            {/* Login button */}
-            <li id="login">Login</li>
-            <li id="login_sm">👨‍💻</li>
-        </ul>
-    </Unit.HeadBar>
-)
+
+                <ul id="right_bar">
+
+                    {/* Create button */}
+                    <li id="create">Create</li>
+                    <li id="create_sm">📝</li>
+
+                    {/* Login button */}
+                    <li id="login">Login</li>
+                    <li id="login_sm">👨‍💻</li>
+                </ul>
+            </Unit.HeadBar>
+
+    
+            {isGrid ? (
+                <ItemBoxContent/>
+                ) : (
+                <ItemListContent/>
+                )}
+        </>
+    )
+}
 
 
 /// Grid display ///
@@ -249,34 +271,3 @@ const DetailItemContent = () => (
     </div>
 )
 
-
-
-
-// ToDo !!!! => Antirix
-
-const DisplaySwitch = () => {
-    const [viewType, setViewType] = useState("grid");
-    const isGrid = viewType === "grid";
-  
-    return (
-      <div>
-            <li
-              onClick={() =>
-                setViewType((currentState) => {
-                  if (currentState === "grid") return "table";
-                  else return "grid";
-                })
-              }
-            >
-              {isGrid ? "Tabulka" : "Grid"}
-            </li>
-
-        {isGrid ? (
-            <ItemBoxContent/>
-        ) : (
-          <ItemListContent/>
-        )}
-    
-    </div>
-    );
-  }

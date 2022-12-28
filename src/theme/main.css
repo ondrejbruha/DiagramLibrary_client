@@ -87,8 +87,6 @@ body {
   background-color: #111;
 }
 
-li#display_table,
-li#create,
 li#search_sm,
 li#filter_sm,
 li#display_sm,
@@ -106,8 +104,6 @@ li#login_sm {
   }
   li#search,
   li#filter,
-  li#display_grid,
-  li#display_list,
   li#login {
     display: none;
   }

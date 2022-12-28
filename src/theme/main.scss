@@ -115,8 +115,7 @@
   // Display corrector
   /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   
-    li#display_table,  // not default option
-    li#create,        // only for logged user
+    // li#create,        // only for logged user
 
     li#search_sm,
     li#filter_sm,
@@ -141,8 +140,6 @@
 
       li#search,
       li#filter,
-      li#display_grid,
-      li#display_list,
       li#login {
         display:          none;
       }
