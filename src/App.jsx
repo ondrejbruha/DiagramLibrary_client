@@ -1,20 +1,27 @@
-import React,{useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './theme/main.css';
 import * as Unit from './Reusable'
 import Icon from '@mdi/react';
-import {mdiFinance, mdiTable, mdiViewGridOutline, mdiImageSearchOutline, mdiFilterCog, mdiAccountCircleOutline, mdiPencilOutline } from '@mdi/js';
-
+import {
+    mdiFinance,
+    mdiTable,
+    mdiViewGridOutline,
+    mdiImageSearchOutline,
+    mdiFilterCog,
+    mdiAccountCircleOutline,
+    mdiPencilOutline
+} from '@mdi/js';
 
 
 //// Only testing = remove /// ====>
 
-import num1 from './images/01.png'
+/*import num1 from './images/01.png'
 import num2 from './images/02.png'
 import num3 from './images/03.png'
-import num4 from './images/04.png'
+import num4 from './images/04.png'*/
 
 let test_data = [
-    {
+    /*{
         "name": "Antirix Testing title xxxxxxxx",
         "authorList": [
             "Antirix", "Matthew", "Shiro xxx xxxxx"
@@ -98,7 +105,7 @@ let test_data = [
         "img": num2,
         "published": true,
         "id": "e2ad64271bee7be1"
-    }
+    }*/
 ]
 /////////////////////////// <== remove
 
@@ -109,18 +116,20 @@ let test_data = [
 
 
 export const App = () => {
-    // const [diagramList, setDiagramList] = useState([]);
-    // useEffect(() => {
 
-    //     fetch('diagram/list')
+    const [diagramList, setDiagramList] = useState([]);
+    useEffect(() => {
 
-    //         .then(response => response.json())
+        fetch('diagram/listFull')
 
-    //         .then(data => setDiagramList(data));
+            .then(response => response.json())
 
-    // }, [])
-    // test_data = diagramList;
-    // console.log(diagramList);
+            .then(data => setDiagramList(data));
+
+    }, [])
+    test_data = diagramList;
+    console.log(diagramList);
+
 
     return (
         <>
@@ -140,16 +149,16 @@ export const App = () => {
 const AppContent = () => {
     const [viewType, setViewType] = useState("grid");
     const isGrid = viewType === "grid";
-  
-    const DisplaySwitch = (p) =>                     
-    <span
-        onClick={() =>
-            setViewType((currentState) => {
-            if (currentState === "grid") return "table";
-            else return "grid";
-            })
-        }
-    >
+
+    const DisplaySwitch = (p) =>
+        <span
+            onClick={() =>
+                setViewType((currentState) => {
+                    if (currentState === "grid") return "table";
+                    else return "grid";
+                })
+            }
+        >
         {p.children}
     </span>
 
@@ -160,16 +169,20 @@ const AppContent = () => {
                 <ul id="left_bar">
 
                     {/* Search button */}
-                    <li id="search">Search</li>             
+                    <li id="search">Search</li>
                     <li id="search_sm"><Icon size={1} path={mdiImageSearchOutline}/></li>
 
                     {/* Filter button */}
-                    <li id="filter">Filter</li>             
+                    <li id="filter">Filter</li>
                     <li id="filter_sm"><Icon size={1} path={mdiFilterCog}/></li>
 
                     {/* Display button */}
-                    <DisplaySwitch><li id="display">{isGrid ? "Table" : "Grid"}</li></DisplaySwitch>
-                    <DisplaySwitch><li id="display_sm"><Icon size={1} path={isGrid ? mdiTable : mdiViewGridOutline} />{" "}</li></DisplaySwitch>
+                    <DisplaySwitch>
+                        <li id="display">{isGrid ? "Table" : "Grid"}</li>
+                    </DisplaySwitch>
+                    <DisplaySwitch>
+                        <li id="display_sm"><Icon size={1} path={isGrid ? mdiTable : mdiViewGridOutline}/>{" "}</li>
+                    </DisplaySwitch>
                 </ul>
 
 
@@ -185,13 +198,13 @@ const AppContent = () => {
                 </ul>
             </Unit.HeadBar>
 
-            
+
             {isGrid ? (
                 <ItemBoxContent/>
-                ) : (
+            ) : (
                 // <ItemListContent/>
-                <DetailItemContent />
-                )}
+                <DetailItemContent/>
+            )}
         </>
     )
 }
@@ -203,7 +216,8 @@ const ItemBoxContent = () => (
     <div id="box_div">
         {test_data.map(item => (
             <Unit.ItemBox key={item.toString()}>
-                <div class="box_title"><span class="box_icon"><Icon path={mdiFinance} size={1.0}/></span> {item.name.slice(0, 20)} </div>
+                <div class="box_title"><span class="box_icon"><Icon path={mdiFinance}
+                                                                    size={1.0}/></span> {item.name.slice(0, 20)} </div>
                 <div class="box_type"> Type: {item.type.slice(0, 20)} </div>
                 <div class="box_topics"> Topic: {item.topics.join(", ").slice(0, 20)} </div>
                 <img class="box_img" src={item.img}></img>
@@ -254,13 +268,13 @@ const ItemListContent = () => (
 
 const DetailItemContent = () => (
     <div class="detail_wrapper">
-        <span class="detail_title">{test_data[0].name}</span>   
+        <span class="detail_title">{test_data[0].name}</span>
         <span class="detail_id">ID: {test_data[0].id}</span>
         <span class="detail_topics">Topics: {test_data[0].topics.join(", ")}</span>
         <span class="detail_type">Type: {test_data[0].type}</span>
-        
+
         <img class="detail_img" src={test_data[0].img}></img>
-       
+
         <div class="description_wrapper">
             <span class="detail_description">{test_data[0].description}</span>
 
