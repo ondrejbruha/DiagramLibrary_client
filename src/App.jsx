@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import './theme/main.css';
 import * as Unit from './Reusable'
 import Icon from '@mdi/react';
-import {mdiFinance} from '@mdi/js';
+import {mdiFinance, mdiTable, mdiViewGridOutline, mdiImageSearchOutline, mdiFilterCog, mdiAccountCircleOutline, mdiPencilOutline } from '@mdi/js';
 
 
 
@@ -121,6 +121,7 @@ export const App = () => {
     // }, [])
     // test_data = diagramList;
     // console.log(diagramList);
+
     return (
         <>
             <Unit.MainWrapper>
@@ -140,6 +141,19 @@ const AppContent = () => {
     const [viewType, setViewType] = useState("grid");
     const isGrid = viewType === "grid";
   
+    const DisplaySwitch = (p) =>                     
+    <span
+        onClick={() =>
+            setViewType((currentState) => {
+            if (currentState === "grid") return "table";
+            else return "grid";
+            })
+        }
+    >
+        {p.children}
+    </span>
+
+
     return (
         <>
             <Unit.HeadBar>
@@ -147,29 +161,15 @@ const AppContent = () => {
 
                     {/* Search button */}
                     <li id="search">Search</li>             
-                    <li id="search_sm">🔎</li>
+                    <li id="search_sm"><Icon size={1} path={mdiImageSearchOutline}/></li>
 
                     {/* Filter button */}
                     <li id="filter">Filter</li>             
-                    <li id="filter_sm">📊</li>
+                    <li id="filter_sm"><Icon size={1} path={mdiFilterCog}/></li>
 
                     {/* Display button */}
-                    <li
-                    onClick={() =>
-                        setViewType((currentState) => {
-                        if (currentState === "grid") return "table";
-                        else return "grid";
-                        })
-                    }
-                    >
-                    {isGrid ? "Tabulka" : "Grid"}
-                    </li>
-
-
-
-                    {/* ToDo Antirix */}
-                    {/* <li id="display_sm">👁</li> */}
-
+                    <DisplaySwitch><li id="display">{isGrid ? "Table" : "Grid"}</li></DisplaySwitch>
+                    <DisplaySwitch><li id="display_sm"><Icon size={1} path={isGrid ? mdiTable : mdiViewGridOutline} />{" "}</li></DisplaySwitch>
                 </ul>
 
 
@@ -177,19 +177,20 @@ const AppContent = () => {
 
                     {/* Create button */}
                     <li id="create">Create</li>
-                    <li id="create_sm">📝</li>
+                    <li id="create_sm"><Icon size={1} path={mdiPencilOutline}/></li>
 
                     {/* Login button */}
                     <li id="login">Login</li>
-                    <li id="login_sm">👨‍💻</li>
+                    <li id="login_sm"><Icon size={1} path={mdiAccountCircleOutline}/></li>
                 </ul>
             </Unit.HeadBar>
 
-    
+            
             {isGrid ? (
                 <ItemBoxContent/>
                 ) : (
-                <ItemListContent/>
+                // <ItemListContent/>
+                <DetailItemContent />
                 )}
         </>
     )

@@ -99,11 +99,14 @@ li#login_sm {
   li#search_sm,
   li#filter_sm,
   li#display_sm,
+  li#create_sm,
   li#login_sm {
     display: inline-block;
   }
   li#search,
   li#filter,
+  li#display,
+  li#create,
   li#login {
     display: none;
   }
@@ -249,7 +252,7 @@ li#login_sm {
   }
 }
 
-@media only screen and (max-width: 900px) and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
   .list_description,
   .list_published_date,
   .list_id,
@@ -320,5 +323,40 @@ li#login_sm {
 .detail_published_date,
 .detail_authors {
   font-style: italic;
+}
+
+@media only screen and (max-width: 850px) {
+  .detail_title {
+    font-size: 1.2rem;
+  }
+  .detail_id,
+  .detail_topics,
+  .detail_type {
+    font-size: 0.91rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .detail_title,
+  .detail_id,
+  .detail_topics,
+  .detail_type {
+    width: 100%;
+    margin-bottom: 0.2rem;
+    display: block;
+    text-align: left;
+  }
+  .detail_title {
+    font-size: 1.5rem;
+  }
+  .detail_id {
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .detail_title {
+    font-size: 1rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */
