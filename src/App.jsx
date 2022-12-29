@@ -189,8 +189,7 @@ const AppContent = () => {
             {isGrid ? (
                 <ItemBoxContent/>
                 ) : (
-                // <ItemListContent/>
-                <DetailItemContent />
+                <ItemListContent/>
                 )}
         </>
     )
