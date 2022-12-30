@@ -87,7 +87,22 @@ body {
   background-color: #111;
 }
 
-li#search_sm,
+li#search {
+  padding: 0;
+}
+
+li#search #searchInput {
+  width: 200px;
+  padding: 0.33333rem;
+  border: solid 3px #00f;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+li#search #searchInput:focus {
+  outline: none;
+}
+
 li#filter_sm,
 li#display_sm,
 li#create_sm,
@@ -96,14 +111,12 @@ li#login_sm {
 }
 
 @media only screen and (max-width: 600px) {
-  li#search_sm,
   li#filter_sm,
   li#display_sm,
   li#create_sm,
   li#login_sm {
     display: inline-block;
   }
-  li#search,
   li#filter,
   li#display,
   li#create,

@@ -5,7 +5,6 @@ import Icon from '@mdi/react';
 import {
     mdiTable,
     mdiViewGridOutline,
-    mdiImageSearchOutline,
     mdiFilterCog,
     mdiAccountCircleOutline,
     mdiPencilOutline
@@ -17,23 +16,61 @@ import {ItemListContent} from './DiagramTableList'
 
 
 export const AppContent = (props) => {
-    const [viewType, setViewType] = useState("grid");
-    const isGrid = viewType === "grid";
-    // Todo Antirix
-    const [searchBy, setSearchBy] = useState("");
+
+    ///////////////////////////////
+    // Settings & initialization //
+    ///////////////////////////////
+
+        // Part of display switch function //
+        const [viewType, setViewType] = useState("grid");
+        const isGrid = viewType === "grid";
+
+        // Part of search function //
+        const [searchBy, setSearchBy] = useState("");
 
 
-    const DisplaySwitch = (p) =>
-        <span
-            onClick={() =>
-                setViewType((currentState) => {
-                    if (currentState === "grid") return "table";
-                    else return "grid";
-                })
-            }
-        >
-        {p.children}
-    </span>
+    /////////////////////
+    // Local functions //
+    /////////////////////
+
+        // Part of display switch function //
+        const DisplaySwitch = (p) => (
+            <span
+                onClick={() =>
+                    setViewType((currentState) => {
+                        if (currentState === "grid") return "table";
+                        else return "grid";
+                    })
+                }
+            >
+                {p.children}
+            </span>
+        )
+
+
+        // Part of search function //
+        const filteredDiagramList = useMemo(() => {
+            return props.diagramList.filter((item) => {
+                return (
+                    item.name
+                    .toLocaleLowerCase()
+                    .includes(searchBy.toLocaleLowerCase())
+                );
+            });
+        }, [searchBy, props.diagramList]);
+        
+
+        // Part of search function //
+        const handleSearch = (event) => {
+            event.preventDefault();
+            setSearchBy(event.target["searchInput"].value);
+        }
+        
+
+        // Part of search function //
+        const handleSearchDelete = (event) => {
+            if (!event.target.value) setSearchBy("");
+        }
 
 
     return (
@@ -41,32 +78,23 @@ export const AppContent = (props) => {
             <Unit.HeadBar>
                 <ul id="left_bar">
 
-                    {/* Todo Antirix */}
-
-                    {/* <form onSubmit={handleSearch}>
-                        <input
-                        type="text"
-                        id="searchInput"
-                        placeholder="Search"
-                        onChange={handleSearchDelete}>
-
-                        </input>
-
-                        <input
-                        type="submit"
-                        >
-
-                        </input>
-                        
-                    </form> */}
-
                     {/* Search button */}
-                    <li id="search">Search</li>
-                    <li id="search_sm"><Icon size={1} path={mdiImageSearchOutline}/></li>
+                    <li id="search">
+                        <form onSubmit={handleSearch}>
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search.."
+                                onChange={handleSearchDelete}>
+                            </input>
+                        </form>
+                    </li>
+
 
                     {/* Filter button */}
                     <li id="filter">Filter</li>
                     <li id="filter_sm"><Icon size={1} path={mdiFilterCog}/></li>
+
 
                     {/* Display button */}
                     <DisplaySwitch>
@@ -85,6 +113,7 @@ export const AppContent = (props) => {
                     <li id="create">Create</li>
                     <li id="create_sm"><Icon size={1} path={mdiPencilOutline}/></li>
 
+
                     {/* Login button */}
                     <li id="login">Login</li>
                     <li id="login_sm"><Icon size={1} path={mdiAccountCircleOutline}/></li>
@@ -93,9 +122,9 @@ export const AppContent = (props) => {
 
 
             {isGrid ? (
-                <ItemBoxContent diagramList={props.diagramList}/>
+                <ItemBoxContent diagramList={filteredDiagramList}/>
                 ) : (
-                <ItemListContent diagramList={props.diagramList}/>
+                <ItemListContent diagramList={filteredDiagramList}/>
                 )}
         </>
     )
