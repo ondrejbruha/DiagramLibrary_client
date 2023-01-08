@@ -12,6 +12,7 @@ import {
 
 import {ItemBoxContent} from './DiagramGridList'
 import {ItemListContent} from './DiagramTableList'
+import CreateDiagram from './CreateDiagram';
 // import {DetailItemContent} from './DiagramDetail'
 
 
@@ -27,6 +28,7 @@ export const AppContent = (props) => {
 
         // Part of search function //
         const [searchBy, setSearchBy] = useState("");
+        const [createModal, setCreateModal] = useState(false);
 
 
     /////////////////////
@@ -110,7 +112,7 @@ export const AppContent = (props) => {
                 <ul id="right_bar">
 
                     {/* Create button */}
-                    <li id="create">Create</li>
+                    <li id="create" onClick={()=>{setCreateModal(true)}}>Create</li>
                     <li id="create_sm"><Icon size={1} path={mdiPencilOutline}/></li>
 
 
@@ -119,6 +121,8 @@ export const AppContent = (props) => {
                     <li id="login_sm"><Icon size={1} path={mdiAccountCircleOutline}/></li>
                 </ul>
             </Unit.HeadBar>
+
+            {createModal ? <CreateDiagram handleClose={setCreateModal}></CreateDiagram> : <></>}
 
 
             {isGrid ? (
