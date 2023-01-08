@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../theme/create.css"
 
 function CreateDiagram(props) {
-    let defaultForm = {
+    let defaultForm = {  //default schema for display
         name: "Von Neumanovo schéma",
         type: "Schéma",
         authorList: [
@@ -16,9 +16,9 @@ function CreateDiagram(props) {
         img: "http://path/to/img",
         published: true
     };
-    const [form, setForm] = useState(defaultForm);
+    const [form, setForm] = useState(defaultForm); //state of form / filled data
 
-    let handleChange = () => {
+    let handleChange = () => { //this function is called when value in input field is changed, this method updates form state
         let newObject = {
             name: document.getElementById("name").value,
             type: document.getElementById("type").value,
@@ -35,7 +35,7 @@ function CreateDiagram(props) {
         };
         setForm(newObject);
     };
-    let submit = async () => {
+    let submit = async () => { //this method send data to backend
         console.log(JSON.stringify(form));
         fetch("diagram/createFull", {
             method: "POST",
@@ -49,7 +49,7 @@ function CreateDiagram(props) {
 
     };
 
-
+    // basic layout
     return (
         <div className="createDiagram">
             <label>Name</label>
