@@ -8,6 +8,7 @@ function Detail(props) {
     return (
         <div key="detail" className="detail">
             <div className="detailHeader">
+                <button onClick={()=>{props.next();}}>Next diagram</button>
                 <div class="box_title">
                     <span class="box_icon">
                         <Icon path={mdiFinance} size={1.0} />

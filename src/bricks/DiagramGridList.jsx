@@ -11,6 +11,12 @@ function ItemBoxContent(props) {
     const [update, setUpdate] = useState(false);
     const [itm, setItm] = useState(props[0]);
     const [detail, setDetail] = useState(false);
+    const next = ()=>{
+        let len = props.diagramList.length;
+        let i = props.diagramList.findIndex(e => e === itm);
+        let newItm = props.diagramList[(i+1)%len];
+        setItm(newItm);
+    };
     return(
         <div id="box_div">
             {props.diagramList.map(item => (
@@ -26,7 +32,7 @@ function ItemBoxContent(props) {
                 </Unit.ItemBox>
             ))}
             {update ? <UpdateDiagram key="update" data={itm} handleClose={setUpdate}></UpdateDiagram> : null}
-            {detail ? <Detail key="detail" data={itm} handleClose={setDetail}></Detail>: null}
+            {detail ? <Detail next={next} key="detail" data={itm} handleClose={setDetail}></Detail>: null}
         </div>
     )
 }
