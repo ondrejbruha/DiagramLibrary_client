@@ -10,7 +10,7 @@ import {
     mdiPencilOutline
 } from '@mdi/js';
 
-import {ItemBoxContent} from './DiagramGridList'
+import ItemBoxContent from './DiagramGridList'
 import {ItemListContent} from './DiagramTableList'
 import CreateDiagram from './CreateDiagram';
 // import {DetailItemContent} from './DiagramDetail'
