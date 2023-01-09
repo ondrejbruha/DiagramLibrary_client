@@ -1,9 +1,8 @@
 .createDiagram {
-    width: 80vw;
-    height: 80vh;
+    width: 100vw;
+    height: 90vh;
     position: fixed;
-    top: 10vh;
-    left: 10vw;
+    right: 10vh;
     background-color: black;
     color: white;
     z-index: 2;
@@ -12,6 +11,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+
 }
 .createDiagram input {
     margin: 15px;
@@ -22,4 +22,5 @@
     margin: 60px;
     width: 35vw;
     height: 5vh;
+    margin-bottom: 2vh;
 }
