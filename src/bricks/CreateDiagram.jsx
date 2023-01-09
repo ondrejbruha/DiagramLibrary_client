@@ -62,7 +62,7 @@ function CreateDiagram(props) {
             <input onChange={() => { handleChange() }} id="description" value={form.description}></input>
             <label>Topics</label>
             <input onChange={() => { handleChange() }} id="topics" value={form.topics[0]}></input>
-            <label>Image URL</label>
+            <label>Image URL / base64</label>
             <input onChange={() => { handleChange() }} id="img" value={form.img}></input>
             <button onClick={() => { submit(); props.handleClose(false); }}>Submit</button>
             <button onClick={() => { props.handleClose(false); }}>Cancel</button>
