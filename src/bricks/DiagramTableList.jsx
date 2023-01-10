@@ -28,7 +28,7 @@ export const ItemListContent = (props) => (
                     <td class="list_topics"> {item.topics.join(", ")} </td>
                     <td class="list_authors"> {item.authorList.join(", ")} </td>
                     <td class="list_description"> {item.description.slice(0, 100)}...</td>
-                    <td class="list_published_date"> {item.publishDate} </td>
+                    <td class="list_published_date"> {(new Date(item.publishDate)).toLocaleDateString()} </td>
                     <td class="list_id"> {item.id} </td>
                 </Unit.ItemList>
             ))}
