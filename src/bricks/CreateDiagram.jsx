@@ -6,7 +6,7 @@ function CreateDiagram(props) {
         name: "Von Neumanovo schéma",
         type: "Schéma",
         authorList: [
-            "Franta Vomáčka"
+            "John Von Neumann"
         ],
         description: "Schéma počítače",
         topics: [
