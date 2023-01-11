@@ -8,7 +8,6 @@ function Detail(props) {
     return (
         <div key="detail" className="detail">
             <div className="detailHeader">
-                <button onClick={()=>{props.next();}}>Next diagram</button>
                 <div className="box_title">
                     <span className="box_icon">
                         <Icon path={mdiFinance} size={1.0} />
@@ -31,6 +30,7 @@ function Detail(props) {
             <button onClick={()=>{props.handleClose(false)}}>
                 Close
             </button>
+            <button onClick={()=>{props.next();}}>Next diagram</button>
         </div>
     );
 }
