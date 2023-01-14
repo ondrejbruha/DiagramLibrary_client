@@ -110,7 +110,6 @@
 }
 
 
-
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Display corrector
   /////////////////////////////////////////////////////////////////////////////////////////////////////////// 
@@ -145,7 +144,7 @@
     // media query
     ///////////////////////////////////////////////
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 650px) {
       li#display_sm,
       li#create_sm,       // only for logged user
       li#login_sm {
@@ -374,6 +373,17 @@
 // App item detail
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+.button_corrector button {
+  width:              100px;
+  margin:             $font_spacing_xs 50%;
+  transform:          translateX(-50%);
+  padding:            $font_spacing_xs / 2.5;
+  border-radius:      $border_contentBox;
+  font-weight:        bold;
+  text-align:         center;
+  display:            none;
+}
+
 .background_corrector {
   width:              95%;
   height:             100vh;
@@ -469,6 +479,16 @@
   // media query
   ///////////////////////////////////////////////
 
+  @media only screen and (max-width: 1000px) {
+    .background_corrector button {
+      display:            none;
+    }
+
+    .button_corrector button {
+      display:            block;
+    }
+  }
+
   @media only screen and (max-width: 850px) {
     .detail_title {
       font-size:        $font_size_md * 1.2;
@@ -531,8 +551,8 @@
       margin-left:      50%;
       transform:        translateX(-50%);
       text-align:       center;
-
     }
+
     label {
       font-weight:      bold;
       font-style:       italic;
@@ -550,5 +570,16 @@
     button:hover {
       background-color:   $c_main;
       color:              $c_light;
+    }
+  }
+
+  
+  ///////////////////////////////////////////////
+  // media query
+  ///////////////////////////////////////////////
+  
+  @media only screen and (max-width: 650px) {
+     .createDiagram input {
+      width:            80%;
     }
   }

@@ -29,6 +29,13 @@ export const DiagramDetail = (props) => {
                     <span className="detail_authors"> by {props.data.authorList.join(", ")}</span>
                 </div>
             </div>
+
+            <div className="button_corrector">
+                <button onClick={()=>{props.handleClose(false)}}>
+                    Close diagram
+                </button>
+                <button onClick={()=>{props.next();}}>Next diagram</button>
+            </div>
         </div>
        </>
     );

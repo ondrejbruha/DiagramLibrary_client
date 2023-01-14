@@ -106,7 +106,7 @@ export const DiagramList = (props) => {
 
                     {/* Create button */}
                     <li id="create" onClick={()=>{setCreateModal(true)}}>Create</li>
-                    <li id="create_sm"><Icon size={1} path={mdiPencilOutline}/></li>
+                    <li id="create_sm" onClick={()=>{setCreateModal(true)}}><Icon size={1} path={mdiPencilOutline}/></li>
 
 
                     {/* Login button */}
