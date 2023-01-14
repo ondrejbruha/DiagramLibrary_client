@@ -2,7 +2,7 @@
     width: 100vw;
     height: 60vh;
     position: fixed;
-    right: 10vh;
+left: 0;
     background-color: red;
     color: white;
     z-index: 2;

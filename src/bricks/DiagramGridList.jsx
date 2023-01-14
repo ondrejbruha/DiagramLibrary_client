@@ -3,7 +3,7 @@ import '../theme/main.css';
 import * as Unit from '../Reusable'
 import Icon from '@mdi/react';
 import { mdiFinance } from '@mdi/js';
-import {UpdateDiagram} from './UpdateDiagram';
+import { UpdateDiagram } from './UpdateDiagram';
 import { DiagramDetail } from './DiagramDetail';
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../theme/create.css"
+import '../theme/main.css';
 
 export const CreateDiagram = (props) => {
     let defaultForm = {  //default schema for display
@@ -51,21 +51,24 @@ export const CreateDiagram = (props) => {
 
     // basic layout
     return (
-        <div className="createDiagram">
-            <label>Name</label>
-            <input onChange={() => { handleChange() }} id="name" value={form.name}></input>
-            <label>Type</label>
-            <input onChange={() => { handleChange() }} id="type" value={form.type}></input>
-            <label>Author</label>
-            <input onChange={() => { handleChange() }} id="author" value={form.authorList[0]}></input>
-            <label>Description</label>
-            <input onChange={() => { handleChange() }} id="description" value={form.description}></input>
-            <label>Topics</label>
-            <input onChange={() => { handleChange() }} id="topics" value={form.topics[0]}></input>
-            <label>Image URL / base64</label>
-            <input onChange={() => { handleChange() }} id="img" value={form.img}></input>
-            <button onClick={() => { submit(); props.handleClose(false); }}>Submit</button>
-            <button onClick={() => { props.handleClose(false); }}>Cancel</button>
-        </div>
+        <>
+            <div className="background_corrector"></div>
+            <div className="createDiagram">
+                <label>Name</label>
+                <input onChange={() => { handleChange() }} id="name" value={form.name}></input>
+                <label>Type</label>
+                <input onChange={() => { handleChange() }} id="type" value={form.type}></input>
+                <label>Author</label>
+                <input onChange={() => { handleChange() }} id="author" value={form.authorList[0]}></input>
+                <label>Description</label>
+                <input onChange={() => { handleChange() }} id="description" value={form.description}></input>
+                <label>Topics</label>
+                <input onChange={() => { handleChange() }} id="topics" value={form.topics[0]}></input>
+                <label>Image URL / base64</label>
+                <input onChange={() => { handleChange() }} id="img" value={form.img}></input>
+                <button onClick={() => { submit(); props.handleClose(false); }}>Submit</button>
+                <button onClick={() => { props.handleClose(false); }}>Cancel</button>
+            </div>
+        </>
     );
 }
