@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './theme/main.css';
 import * as Unit from './Reusable'
 
-import {AppContent} from './bricks/DiagramList'
+import {DiagramList} from './bricks/DiagramList'
 
 
 export const App = () => {
@@ -16,7 +16,7 @@ export const App = () => {
     return (
         <>
             <Unit.MainWrapper>
-                <AppContent diagramList={diagramList} />
+                <DiagramList diagramList={diagramList} />
                 <Unit.Footer/>
             </Unit.MainWrapper>
         </>

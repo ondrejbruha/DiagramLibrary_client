@@ -5,7 +5,7 @@ import Icon from '@mdi/react';
 import {mdiFinance} from '@mdi/js';
 
 
-export const ItemListContent = (props) => (
+export const DiagramTableList = (props) => (
     <div>
         <table id="item_list_content">
             <tr>

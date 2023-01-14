@@ -2,7 +2,7 @@ import React from 'react';
 import '../theme/main.css';
 
 
-export const DetailItemContent = (props) => {
+export const DiagramDetail = (props) => {
     return(
         <div className="detail_wrapper">
             <button onClick={()=>{props.handleClose(false)}}>

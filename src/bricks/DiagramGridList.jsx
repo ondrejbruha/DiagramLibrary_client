@@ -3,12 +3,11 @@ import '../theme/main.css';
 import * as Unit from '../Reusable'
 import Icon from '@mdi/react';
 import { mdiFinance } from '@mdi/js';
-import UpdateDiagram from './update';
-import Detail from './detail';
-import { DetailItemContent } from './DiagramDetail';
+import {UpdateDiagram} from './UpdateDiagram';
+import { DiagramDetail } from './DiagramDetail';
 
 
-function ItemBoxContent(props) {
+export const DiagramGridList = (props) => {
     const [update, setUpdate] = useState(false);
     const [itm, setItm] = useState(props[0]);
     const [detail, setDetail] = useState(false);
@@ -33,8 +32,7 @@ function ItemBoxContent(props) {
                 </Unit.ItemBox>
             ))}
             {update ? <UpdateDiagram key="update" data={itm} handleClose={setUpdate}></UpdateDiagram> : null}
-            {detail ? <DetailItemContent next={next} key="detail" data={itm} handleClose={setDetail}/> : null}
+            {detail ? <DiagramDetail next={next} key="detail" data={itm} handleClose={setDetail}/> : null}
         </div>
     )
 }
-export default ItemBoxContent;

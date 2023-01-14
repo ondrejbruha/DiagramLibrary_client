@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../theme/create.css"
 
-function CreateDiagram(props) {
+export const CreateDiagram = (props) => {
     let defaultForm = {  //default schema for display
         name: "Von Neumanovo schéma",
         type: "Schéma",
@@ -69,4 +69,3 @@ function CreateDiagram(props) {
         </div>
     );
 }
-export default CreateDiagram;

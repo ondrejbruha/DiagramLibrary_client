@@ -5,18 +5,16 @@ import Icon from '@mdi/react';
 import {
     mdiTable,
     mdiViewGridOutline,
-    mdiFilterCog,
     mdiAccountCircleOutline,
     mdiPencilOutline
 } from '@mdi/js';
 
-import ItemBoxContent from './DiagramGridList'
-import {ItemListContent} from './DiagramTableList'
-import CreateDiagram from './CreateDiagram';
-// import {DetailItemContent} from './DiagramDetail'
+import {DiagramGridList} from './DiagramGridList'
+import {DiagramTableList} from './DiagramTableList'
+import {CreateDiagram} from './CreateDiagram';
 
 
-export const AppContent = (props) => {
+export const DiagramList = (props) => {
 
     ///////////////////////////////
     // Settings & initialization //
@@ -93,11 +91,6 @@ export const AppContent = (props) => {
                     </li>
 
 
-                    {/* Filter button */}
-                    <li id="filter">Filter</li>
-                    <li id="filter_sm"><Icon size={1} path={mdiFilterCog}/></li>
-
-
                     {/* Display button */}
                     <DisplaySwitch>
                         <li id="display">{isGrid ? "Table" : "Grid"}</li>
@@ -126,9 +119,9 @@ export const AppContent = (props) => {
 
 
             {isGrid ? (
-                <ItemBoxContent diagramList={filteredDiagramList}/>
+                <DiagramGridList diagramList={filteredDiagramList}/>
                 ) : (
-                <ItemListContent diagramList={filteredDiagramList}/>
+                <DiagramTableList diagramList={filteredDiagramList}/>
                 )}
         </>
     )

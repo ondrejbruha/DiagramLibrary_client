@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../theme/create.css"
 
-function UpdateDiagram(props) {
+export const UpdateDiagram = (props) => {
     let defaultForm = {  //default schema for display
         id: props.data.id,
         name: props.data.name,
@@ -71,4 +71,3 @@ function UpdateDiagram(props) {
         </div>
     );
 }
-export default UpdateDiagram;
