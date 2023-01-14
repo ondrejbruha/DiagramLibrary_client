@@ -4,11 +4,16 @@ import '../theme/main.css';
 
 export const DiagramDetail = (props) => {
     return(
-        <div className="detail_wrapper">
-            <button onClick={()=>{props.handleClose(false)}}>
-                Close
+        <>
+        <div className="background_corrector">
+        <button onClick={()=>{props.handleClose(false)}}>
+                Close diagram
             </button>
+
             <button onClick={()=>{props.next();}}>Next diagram</button>
+        </div>
+
+        <div className="detail_wrapper">
             <span className="detail_title">{props.data.name}</span>
             <span className="detail_id">ID: {props.data.id}</span>
             <span className="detail_topics">Topics: {props.data.topics.join(", ")}</span>
@@ -25,5 +30,6 @@ export const DiagramDetail = (props) => {
                 </div>
             </div>
         </div>
+       </>
     );
 }

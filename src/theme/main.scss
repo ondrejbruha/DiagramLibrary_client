@@ -146,14 +146,12 @@
     ///////////////////////////////////////////////
 
     @media only screen and (max-width: 600px) {
-      li#filter_sm,
       li#display_sm,
       li#create_sm,       // only for logged user
       li#login_sm {
         display:          inline-block;
       }
 
-      li#filter,
       li#display,
       li#create,
       li#login {
@@ -361,8 +359,36 @@
 // App item detail
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+.background_corrector {
+  width:              95%;
+  height:             100vh;
+  position:           fixed;
+  left:               0;
+  margin:             0 2.5%;
+  background-color:   $c_darkBg;
+
+  button {
+    width:              100px;
+    margin-left:        $font_size_lg;  
+    margin-bottom:      $font_size_xs;
+    padding:            $font_spacing_xs / 2.5;
+    border-radius:      $border_contentBox;
+    display:            block;
+    font-weight:        bold;
+    text-align:         center;
+  }
+
+  button:hover {
+    background-color:   $c_main;
+    color:              $c_light;
+  }
+}
+
 .detail_wrapper {
-  width:              100%;
+  width:              70vw;
+  height:             80vh;
+  position:           fixed;
+  overflow-y:         scroll;
   padding:            $font_spacing_xs $font_spacing_sm;
   border-radius:      $border_contentBox;
   background-color:   $c_secD1;

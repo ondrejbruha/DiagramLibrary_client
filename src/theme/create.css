@@ -3,7 +3,7 @@
     height: 60vh;
     position: fixed;
     right: 10vh;
-    background-color: black;
+    background-color: red;
     color: white;
     z-index: 2;
     display: flex;
